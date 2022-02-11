@@ -1,9 +1,15 @@
 <?php
 require('inc/connection.php');
-// if( empty( $_SESSION['admin_id'] ))
-// {
-//     header("location:login.php");
-// }
+
+ /*       Authentication    */
+ if(!isset( $_SESSION['admin_id'] ))
+ {
+     header("location:login.php");
+ }
+ 
+
+
+
 if(isset($_POST['submit'])){
     $title=trim(stripslashes(htmlspecialchars($_POST['title'])));
     $body=trim(stripslashes(htmlspecialchars($_POST['body'])));
@@ -11,18 +17,18 @@ if(isset($_POST['submit'])){
 
 
     // validation
-   // validate title requierd | length <255 | string 
+    // validate title requierd | length <255 | string 
     $errors=[];
     if(empty($title)){
         $errors[]="Title is requierd" ;
     }elseif(is_numeric($title)){
         $errors[]="Title must be string";
     }elseif(strlen($title)>255){
-        $errors[]="Title must be less than 255 char";
+        $errors[]="Title must be less than 255 char" ;
     }
      // validate body requierd | string 
     if(empty($body)){
-        $errors[]="body is requierd" ;
+        $errors[]= "body is requierd" ;
     }elseif(is_numeric($body)){
         $errors[]="body must be string";
     }

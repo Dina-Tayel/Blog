@@ -2,6 +2,17 @@
 <?php require('inc/header.php'); ?>
 <?php require('inc/navbar.php'); ?>
 <?php 
+
+
+ /*       Authentication    */
+ if(!isset( $_SESSION['admin_id'] ))
+ {
+     header("location:login.php");
+ }
+ 
+
+
+
  if(isset($_GET['id'])){
      $id=$_GET['id'];
      $query="select `title` ,`body` from `posts` where `id`='$id' " ;

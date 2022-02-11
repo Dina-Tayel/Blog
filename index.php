@@ -1,8 +1,18 @@
-<?php require('inc/connection.php'); ?>
+<?php
+
+require('inc/connection.php'); ?>
 
 <?php require('inc/header.php'); ?>
 <?php require('inc/navbar.php'); ?>
 <?php 
+
+
+ /*       Authentication    */
+ if(!isset( $_SESSION['admin_id'] ))
+ {
+     header("location:login.php");
+ }
+ 
 
 $query="select `id`,`title`,`created_at` from `posts` " ;
 $result=mysqli_query($connection,$query);

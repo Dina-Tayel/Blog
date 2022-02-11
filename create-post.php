@@ -1,6 +1,12 @@
 <?php require('inc/connection.php'); ?>
 <?php require('inc/header.php'); ?>
 <?php require('inc/navbar.php'); ?>
+<?php
+if(!isset( $_SESSION['admin_id'] ))
+{
+    header("location:login.php");
+}
+?>
 
 <div class="container-fluid pt-4">
     <div class="row">

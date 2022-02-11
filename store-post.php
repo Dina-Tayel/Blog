@@ -1,5 +1,16 @@
 <?php
  require('inc/connection.php');
+
+
+ /*       Authentication    */
+ if(!isset( $_SESSION['admin_id'] ))
+ {
+     header("location:login.php");
+ }
+ 
+
+
+
 if(isset($_POST['submit'])){
     $title=trim(stripslashes(htmlspecialchars($_POST['title'])));
     $body=trim(stripslashes(htmlspecialchars($_POST['body'])));

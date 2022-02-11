@@ -3,6 +3,12 @@
 <?php require('inc/navbar.php'); ?>
 <?php 
 
+
+if(!isset( $_SESSION['admin_id'] ))
+{
+    header("location:login.php");
+}
+
 if(isset($_GET['id'])){
     $id=$_GET['id'];
     $query="select `id`, `title`,`body` from `posts` where `id`='$id' " ;

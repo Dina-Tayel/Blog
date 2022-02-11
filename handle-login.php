@@ -1,5 +1,14 @@
 <?php 
  require('inc/connection.php');
+
+ /*       Authentication    */
+if(!isset( $_SESSION['admin_id'] ))
+{
+    header("location:login.php");
+}
+
+
+
 if(isset($_POST['submit'])){
  $email=trim(stripslashes(htmlspecialchars($_POST['email'])));
  $password=trim(stripslashes(htmlspecialchars($_POST['password'])));

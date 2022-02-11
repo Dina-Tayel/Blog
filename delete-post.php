@@ -1,5 +1,10 @@
 <?php require('inc/connection.php'); 
 
+if(!isset( $_SESSION['admin_id'] ))
+{
+    header("location:login.php");
+}
+
 if(isset($_GET['id'])){
     $id=$_GET['id'];
     $query="delete from `posts` where `id`='$id'";
